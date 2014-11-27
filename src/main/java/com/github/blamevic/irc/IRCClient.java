@@ -1,4 +1,4 @@
-package eu.thog92.irc;
+package com.github.blamevic.irc;
 
 import java.io.*;
 import java.net.Socket;

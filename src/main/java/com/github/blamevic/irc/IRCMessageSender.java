@@ -1,4 +1,4 @@
-package eu.thog92.irc;
+package com.github.blamevic.irc;
 
 public class IRCMessageSender {
     IRCClient client;
