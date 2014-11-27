@@ -1,0 +1,13 @@
+apply plugin: "java"
+
+apply plugin: "idea"
+apply plugin: "eclipse"
+
+task sourcesJar(type: Jar, dependsOn: classes) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives sourcesJar
+}
