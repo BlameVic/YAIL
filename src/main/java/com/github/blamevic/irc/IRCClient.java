@@ -29,7 +29,7 @@ public class IRCClient {
 
     private Date lastDebug;
 
-    private NumberFormat diffFormat = new DecimalFormat("#00.00");
+    private NumberFormat diffFormat = new DecimalFormat("#000.00");
     private DateFormat   timeFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ssZ");
 
     /**
