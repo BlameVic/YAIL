@@ -168,12 +168,7 @@ public class IRCMessageParser {
         }
 
         public boolean targetIsAChannel() {
-            char first = this.target.charAt(0);
-            if      (first == '#') return true;
-            else if (first == '&') return true;
-            else if (first == '+') return true;
-            else if (first == '!') return true;
-            else return false;
+            return IRCMessageParser.stringIsAChannel(this.target);
         }
 
         public boolean isTargetSelf(IRCClient client) {
@@ -188,5 +183,14 @@ public class IRCMessageParser {
                     ", message='" + message + '\'' +
                     '}';
         }
+    }
+
+    public static boolean stringIsAChannel(String theString) {
+        char first = theString.charAt(0);
+        if      (first == '#') return true;
+        else if (first == '&') return true;
+        else if (first == '+') return true;
+        else if (first == '!') return true;
+        else return false;
     }
 }
