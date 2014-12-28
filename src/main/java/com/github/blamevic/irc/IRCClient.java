@@ -68,6 +68,11 @@ public class IRCClient {
                 sock.getOutputStream()));
     }
 
+    public void login(String password) {
+        sender.command("PASS", password);
+        login();
+    }
+
     public void login() {
         sender.command("NICK", username);
         sender.command("USER", username, "0", "*", ":" + realname);
