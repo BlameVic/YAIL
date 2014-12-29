@@ -69,13 +69,13 @@ public class IRCClient {
     }
 
     public void login(String password) {
-        sender.command("PASS", password);
+        sender.pass(password);
         login();
     }
 
     public void login() {
-        sender.command("NICK", username);
-        sender.command("USER", username, "0", "*", ":" + realname);
+        sender.nick(username);
+        sender.user(username, 0, realname);
     }
 
     public boolean joinChannel(String channel) {
@@ -87,13 +87,13 @@ public class IRCClient {
         }
     }
 
-    public boolean leaveChannel(String channel) {
-        sender.command("PART", channel);
+    public boolean leaveChannel(String channel, String reason) {
+        return sender.part(channel, reason);
         return channels.remove(channel);
     }
 
     public boolean sendMessage(String message, String target) {
-        return sender.command("PRIVMSG", target, ":" + message);
+        return sender.privateMessage(message, target);
     }
 
     /**
