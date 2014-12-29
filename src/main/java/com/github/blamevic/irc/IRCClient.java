@@ -19,7 +19,6 @@ public class IRCClient {
 
     public boolean debug;
 
-    public List<String> channels = new ArrayList<String>();
 
     public IRCMessageSender sender = new IRCMessageSender(this);
 
@@ -79,17 +78,11 @@ public class IRCClient {
     }
 
     public boolean joinChannel(String channel) {
-        if (sender.join(channel)) {
-            channels.add(channel);
-            return true;
-        } else {
-            return false;
-        }
+        return sender.join(channel);
     }
 
     public boolean leaveChannel(String channel, String reason) {
         return sender.part(channel, reason);
-        return channels.remove(channel);
     }
 
     public boolean sendMessage(String message, String target) {
