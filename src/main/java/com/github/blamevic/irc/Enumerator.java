@@ -35,12 +35,23 @@ public abstract class Enumerator<E> implements Iterable<E> {
      * Resets the Enumerator to the beginning of the collection
      *
      * @throws java.lang.UnsupportedOperationException when the reset
-     *     operation is not supported by the underlying collection
+     * operation is not supported by the underlying collection
      */
     public void reset() {
         throw new UnsupportedOperationException("reset");
     }
 
+    /**
+     * An Iterator which accepts an enumerator, and presents it as an Iterator
+     *
+     * Both {@code hasNext()} and {@code next()} call moveNext and getCurrent,
+     * unless the answer is cached.
+     *
+     * @param <T> the type of the Enumerator
+     *
+     * @see java.util.Iterator
+     * @see com.github.blamevic.irc.Enumerator
+     */
     public static class EnumeratorIterator<T> implements Iterator<T> {
         private Enumerator<T> enumerator;
 
