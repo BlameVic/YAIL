@@ -139,7 +139,7 @@ public class IRCClient {
      * @param text A non-terminated string
      * @return True if no IOException was thrown.
      */
-    public boolean writeLine(String text) {
+    public synchronized boolean writeLine(String text) {
         try {
             out.write(text + "\r\n");
             out.flush();
@@ -159,7 +159,7 @@ public class IRCClient {
      * @return The line read, or null if an exception was thrown or the end of
      * the stream was reached.
      */
-    public String readLine() {
+    public synchronized String readLine() {
         String line;
         try {
             if (in.ready()) {
