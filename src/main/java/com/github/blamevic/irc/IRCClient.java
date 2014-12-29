@@ -19,7 +19,6 @@ public class IRCClient {
 
     public boolean debug;
 
-
     public IRCMessageSender sender = new IRCMessageSender(this);
 
     private Socket         sock;
@@ -79,6 +78,10 @@ public class IRCClient {
 
     public boolean joinChannel(String channel) {
         return sender.join(channel);
+    }
+
+    public boolean leaveChannel(String... channels) {
+        return sender.part(channels);
     }
 
     public boolean leaveChannel(String channel, String reason) {
