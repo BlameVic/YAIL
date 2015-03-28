@@ -11,9 +11,15 @@ compileJava {
 
 repositories {
     mavenCentral()
+    maven {
+        name "RX14"
+        url "http://mvn.rx14.co.uk/local/"
+    }
 }
 
 dependencies {
+    compile "com.github.blamevic.enumerators:JEnumerators:0.1.2"
+
     testCompile "junit:junit:4.+"
 }
 
