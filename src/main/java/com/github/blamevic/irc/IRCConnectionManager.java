@@ -1,14 +1,16 @@
 package com.github.blamevic.irc;
 
+import com.github.blamevic.enumerators.Enumerator;
 import com.github.blamevic.irc.IRCMessageParser.PrivateMessage;
 
 import java.util.List;
+import java.util.Set;
 
-public interface IIRCConnectionManager {
+public interface IRCConnectionManager {
     /**
      * @return the list of joined IRC channels
      */
-    List<String> getChannels();
+    Set<String> channels();
 
     /**
      * Joins an IRC channel
@@ -21,7 +23,7 @@ public interface IIRCConnectionManager {
      * Leaves an IRC channel
      *
      * @param channel The channel to leave
-     * @return whether the channel was joined
+     * @return true if the channel was left
      */
     boolean leaveChannel(String channel);
 
@@ -30,6 +32,7 @@ public interface IIRCConnectionManager {
      *
      * @param channel The channel to leave
      * @param reason The reason given to the leave message
+     * @return true if the channel was left
      */
     boolean leaveChannel(String channel, String reason);
 
@@ -39,5 +42,12 @@ public interface IIRCConnectionManager {
      * @param channel the channel to get the enumerator for
      * @return an enumerator of messages in the channel
      */
-    Enumerator<PrivateMessage> getEnumeratorForChannel(String channel);
+    Enumerator<PrivateMessage> channelEnumerator(String channel);
+
+    /**
+     * Gets the IRC Client
+     *
+     * @return an IRC Client.
+     */
+    IRCClient client();
 }
