@@ -1,7 +1,18 @@
-.gradle/
-build/
+# gradle
+/.gradle
+/build
 
-*.iml
-*.ipr
-*.iws
-.idea/
+# eclipse
+/eclipse
+/.settings
+/.metdata
+/.classpath
+/.project
+/bin
+
+# intellij
+/out
+/.idea
+/*.iml
+/*.ipr
+/*.iws
